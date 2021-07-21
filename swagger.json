@@ -1,0 +1,224 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "Concord Interview",
+    "contact": {}
+  },
+  "host": "concord-test.herokuapp.com",
+  "basePath": "/api",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/countries": {
+      "get": {
+        "summary": "List Countries",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "ListCountries",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/states": {
+      "post": {
+        "summary": "List States",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "ListStates",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ListStatesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/cities": {
+      "post": {
+        "summary": "List Cities",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "ListCities",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ListCitiesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/register": {
+      "post": {
+        "summary": "Register",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Register",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RegisterRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ListStatesRequest": {
+      "title": "ListStatesRequest",
+      "example": {
+        "country_code": "IN"
+      },
+      "type": "object",
+      "properties": {
+        "country_code": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "country_code"
+      ]
+    },
+    "ListCitiesRequest": {
+      "title": "ListCitiesRequest",
+      "example": {
+        "country_code": "IN",
+        "state_code": "RJ"
+      },
+      "type": "object",
+      "properties": {
+        "country_code": {
+          "type": "string"
+        },
+        "state_code": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "country_code",
+        "state_code"
+      ]
+    },
+    "RegisterRequest": {
+      "title": "RegisterRequest",
+      "example": {
+        "first_name": "user first name",
+        "last_name": "user last name",
+        "email": "testuser@gmail.com",
+        "address1": "test 01",
+        "address2": "test street",
+        "country": "India",
+        "state": "Tamil Nadu",
+        "city": "Chennai"
+      },
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "address1": {
+          "type": "string"
+        },
+        "address2": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "first_name",
+        "last_name",
+        "email",
+        "address1",
+        "address2",
+        "country",
+        "state",
+        "city"
+      ]
+    }
+  },
+  "tags": [
+    {
+      "name": "Misc",
+      "description": ""
+    }
+  ]
+}
